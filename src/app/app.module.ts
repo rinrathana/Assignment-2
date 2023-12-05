@@ -5,9 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateformComponent } from './createform/createform.component';
 import { HomeComponent } from './home/home.component';
-import { Createform2Component } from './createform2/createform2.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material-module';
+import { HeaderModule } from './header/header.module';
+import { DrivenComponent } from './driven-form/driven/driven.component';
+import { DrivenFormModule } from './driven-form/driven-form.module';
+
+
 
 const routes: Routes = [
   {
@@ -24,24 +29,26 @@ const routes: Routes = [
 
   {
     path: 'form',
-    component: CreateformComponent,
     title: 'Home',
   },
+  {
+    path: 'form-two',
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateformComponent,
     HomeComponent,
-    Createform2Component
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    RouterModule.forRoot(routes)
+    MaterialModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    HeaderModule,
+    DrivenFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

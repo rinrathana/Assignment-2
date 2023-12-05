@@ -1,0 +1,30 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-toolbar{
+    background-color:#343a40;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+h2{
+    font-size: medium;
+    color: #ffffff;
+}
+
+nav ul{
+    float: right;
+    list-style-type: none;
+   
+}
+ul li{
+    display: inline-block;
+    padding: 20px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
