@@ -2,53 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material-module';
-import { HeaderModule } from './header/header.module';
-import { DrivenComponent } from './driven-form/driven/driven.component';
-import { DrivenFormModule } from './driven-form/driven-form.module';
-
-
-
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
-  },
-  
-  {
-    path: 'home',
-    component: HomeComponent,
-    title: 'Home',
-  },
-
-  {
-    path: 'form',
-    title: 'Home',
-  },
-  {
-    path: 'form-two',
-  }
-];
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
-    HeaderModule,
-    DrivenFormModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
