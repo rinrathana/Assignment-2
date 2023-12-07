@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 29px;
+    
+}
+
+mat-form-field{
+    width: 50%;
+    margin:auto;
+    
+ }
+ button{
+    width: 30%;
+    background-color: red;
+    margin: auto;
+ }

@@ -6,20 +6,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './driven.component.html',
   styleUrls: ['./driven.component.scss']
 })
-export class DrivenComponent implements  OnInit{
+export class DrivenComponent{
   
-  formDriven!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder){
-  }
-  ngOnInit(): void {
-    this.createForm();
-  }
-  
-  private createForm(){
-    this.formDriven = this.formBuilder.group({
-      name: '',
-      gender: ''
-    });
-  }
 }

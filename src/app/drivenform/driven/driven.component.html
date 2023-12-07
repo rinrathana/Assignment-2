@@ -1,13 +1,18 @@
-<!-- <form [formGroup]="formDriven">
-    <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input type="text" matInput placeholder="Username" formControlName="name">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <mat-label>Gender</mat-label>
-        <input type="text" matInput placeholder="Gender" formControlName="gender">
-    </mat-form-field>
-</form> -->
 
-<span>hello</span>
+
+<form>
+<mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput type="text" name="user">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="email"/>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" name="password">
+</mat-form-field>
+  
+<button mat-button >Submit</button>
+</form>
