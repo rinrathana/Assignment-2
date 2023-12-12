@@ -7,5 +7,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./driven.component.scss']
 })
 export class DrivenComponent{
+  // onSubmit() {
+  //   console.log('Form value ', this.loginForm.value)
+  // }
   
 }
