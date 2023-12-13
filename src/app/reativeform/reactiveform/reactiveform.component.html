@@ -10,18 +10,11 @@
       "
     ></div>
 
-    <!-- <input type="text" placeholder="username" formControlName="user">
-            <br><br>
-            <input type="text" placeholder="email" formControlName="email">
-            <br><br>
-            <input type="password" placeholder=" password " formControlName="password">
-            <br><br>
-            <button>login</button> -->
+    
 
     <div class="full-width">
-      <h4>Title</h4>
       <mat-form-field>
-        <!-- <mat-label>Username</mat-label> -->
+        <mat-label>Tilte</mat-label>
         <input matInput type="text" formControlName="title" required />
         <mat-error *ngIf="loginForm.get('title').hasError"
           >What do you want to do?</mat-error
@@ -30,43 +23,36 @@
     </div>
 
     <div class="full-width">
-        <h4>Description</h4>
         <mat-form-field>
-          <!-- <mat-label>Email</mat-label> -->
-          <!-- <input matInput type="email" formControlName="email" required /> -->
-          <textarea matInput placeholder formControlName="description"></textarea>
-          <!-- <mat-error *ngIf="loginForm.get('email').hasError">input email</mat-error> -->
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
 
     </div>
 
     <div class="full-width">
-        <h4> Deadline</h4>
+  
+     
+
         <mat-form-field>
-          <!-- <mat-label>Password</mat-label> -->
-          <!-- <input matInput type="password" formControlName="password" required />
-              <mat-error *ngIf="loginForm.get('password').hasError" -->
-          <!-- >input password</mat-error -->
-          <!-- > -->
-          <input matInput [matDatepicker]="picker" formControlName="dateLine" />
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>Deadline : YYYY-MM-DD</mat-label>
+          <input matInput type="text" formControlName="deadline" required />
+          <mat-error *ngIf="loginForm.get('deadline').hasError"
+            >Please set your deadline</mat-error
+          >
         </mat-form-field>
     </div>
 
     <div class="full-width">
-        <h4>Priority</h4>
+       
         <mat-form-field>
-          <select matNativeControl formControlName="priority">
-            <option value="" selected>ALL</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="urgent">Urgent</option>
-          </select>
+          <mat-label></mat-label>
+          <mat-select matNativeControl formControlName="priority">
+            <mat-option value="low">Low</mat-option>
+            <mat-option value="medium">Medium</mat-option>
+            <mat-option value="high">High</mat-option>
+            <mat-option value="urgent">Urgent</mat-option>
+          </mat-select>
         </mat-form-field>
     </div>
 

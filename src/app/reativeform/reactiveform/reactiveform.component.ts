@@ -13,9 +13,9 @@ export class ReactiveformComponent implements OnInit{
   ngOnInit(): void {
     this.loginForm= this.fb.group({
       title: ['', Validators.required],
-      description: ['', Validators.required],
-      dateLine: ['',Validators.required],
-      priority: ['', Validators.required]
+      description: [''],
+      deadline: ['',Validators.required],
+      priority: ['low']
     });
   }
 
