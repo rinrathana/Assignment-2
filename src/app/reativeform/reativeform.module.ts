@@ -6,22 +6,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDateRangePicker, MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import {
+  MatDateRangePicker,
+  MatDatepicker,
+  MatDatepickerModule,
+} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 const routes: Route[] = [
-{
-  path: '',
-  component: ReactiveformComponent
-}
-]
-
-
+  {
+    path: '',
+    component: ReactiveformComponent,
+  },
+];
 
 @NgModule({
-  declarations: [
-    ReactiveformComponent
-  ],
+  declarations: [ReactiveformComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -31,7 +32,8 @@ const routes: Route[] = [
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
-  ]
+    MatSelectModule,
+    MatTableModule,
+  ],
 })
-export class ReativeformModule { }
+export class ReativeformModule {}

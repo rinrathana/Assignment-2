@@ -1,49 +1,56 @@
-<div class="form-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h2>ADD TODO</h2>
+<div style="display: flex; justify-content: space-between;">
+  <div class="form-container">
+    <form [formGroup]="reactiveForm">
+      <h2>ADD TODO</h2>
 
-    <div>
-      style="
-        border-bottom: 1px solid #c6c6c6;
-        margin-top: -16px;
-        margin-bottom: 15px;
-      "
-    </div>
+      <div
+        style="
+          border-bottom: 1px solid #c6c6c6;
+          margin-top: -16px;
+          margin-bottom: 15px;
+        "
+      ></div>
 
-    
+      <div class="full-width">
+        <mat-form-field>
+          <mat-label>Tilte</mat-label>
+          <input matInput type="text" formControlName="title" required />
+          <mat-error *ngIf="reactiveForm.get('title').hasError"
+            >What do you want to do?</mat-error
+          >
+        </mat-form-field>
+      </div>
 
-    <div class="full-width">
-      <mat-form-field>
-        <mat-label>Tilte</mat-label>
-        <input matInput type="text" formControlName="title" required />
-        <mat-error *ngIf="loginForm.get('title').hasError"
-          >What do you want to do?</mat-error
-        >
-      </mat-form-field>
-    </div>
-
-    <div class="full-width">
+      <div class="full-width">
         <mat-form-field>
           <mat-label>Description</mat-label>
           <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
+      </div>
 
-    </div>
-
-    <div class="full-width">
+      <div class="full-width">
         <mat-form-field>
           <mat-label>Deadline : YYYY-MM-DD</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="deadline" required>
-          <mat-error *ngIf="loginForm.get('deadline').hasError">Please set your deadline</mat-error>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="deadline"
+            required
+          />
+          <mat-error *ngIf="reactiveForm.get('deadline').hasError"
+            >Please set your deadline</mat-error
+          >
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-    </div>
+      </div>
 
-    <div class="full-width">
-       
+      <div class="full-width">
         <mat-form-field>
-          <mat-label></mat-label>
+          <mat-label>Priority</mat-label>
           <mat-select matNativeControl formControlName="priority">
             <mat-option value="low">Low</mat-option>
             <mat-option value="medium">Medium</mat-option>
@@ -51,19 +58,57 @@
             <mat-option value="urgent">Urgent</mat-option>
           </mat-select>
         </mat-form-field>
-    </div>
+      </div>
 
-    <div style="border-bottom: 1px solid #c6c6c6; margin: 20px 0"></div>
-    <div style="display: flex; justify-content: end">
-      <button
-        mat-flat-button
-        type="submit"
-        color="primary"
-        [disabled]="loginForm.invalid ? true : loginForm.value ? false : ''"
-        style="width: 100px"
-      >
-        Submit
-      </button>
+      <div style="border-bottom: 1px solid #c6c6c6; margin: 20px 0"></div>
+      <div style="display: flex; justify-content: end">
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          [disabled]="
+            reactiveForm.invalid ? true : reactiveForm.value ? false : ''
+          "
+          style="width: 100px"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="todoList" style="width: 49%;">
+
+    <div *ngFor="let _data of todo">
+      <h1>{{ _data?.title }}</h1>
+      <h1>{{ _data?.deadline | date: 'mediumDate' }}</h1>
+      <h1>{{ _data?.priority }}</h1>
+      <h1>{{ _data?.description }}</h1>
     </div>
-  </form>
+    
+    <table mat-table [dataSource]="todo" class="mat-elevation-z8">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let element"> {{element?.title}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element"> {{element?.description}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="deadline">
+        <th mat-header-cell *matHeaderCellDef>Deadline</th>
+        <td mat-cell *matCellDef="let element"> {{element?.deadline | date: 'mediumDate'}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef>Priority</th>
+        <td mat-cell *matCellDef="let element"> {{element?.priority}} </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>

@@ -1,30 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Todo } from 'src/app/interface/todo';
+import { ReactiveFornService } from 'src/app/service/reactive-forn.service';
 
 @Component({
   selector: 'app-reactiveform',
   templateUrl: './reactiveform.component.html',
-  styleUrls: ['./reactiveform.component.scss']
+  styleUrls: ['./reactiveform.component.scss'],
 })
-export class ReactiveformComponent implements OnInit{
-  loginForm: FormGroup;
+export class ReactiveformComponent implements OnInit {
+  public reactiveForm: FormGroup;
+  todo: Todo[] = [];
+  displayedColumns: string[] = ['title',  'description','deadline', 'priority'];
 
-  constructor(private fb: FormBuilder){}
-  ngOnInit(): void {
-    this.loginForm= this.fb.group({
+  constructor(private fb: FormBuilder, private reactiveFormSerivce: ReactiveFornService) {}
+
+  ngOnInit() : void {
+    this.createForm();
+    this.getToDoList();
+  }
+
+  private createForm() {
+    this.reactiveForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      deadline: ['',Validators.required],
-      priority: ['low']
+      deadline: ['', Validators.required],
+      priority: ['low'],
     });
   }
 
-
-  onSubmit() {
-    console.log('Form value ', this.loginForm.value)
+  public onSubmit() {
+    this.reactiveFormSerivce.addTodoList(this.reactiveForm.value);
+    // console.log('Form value ', this.loginForm.value)
+    // console.log('hi');
+    this.reactiveForm.reset();
   }
-  // onClick(){
-  //   alert(45)
-  // }
-}
 
+  private getToDoList(){
+    this.todo = this.reactiveFormSerivce.getTodoList();
+  }
+}
