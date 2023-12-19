@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from '../interface/todo';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ReactiveFornService {
+export class ReactiveFormService {
   todoList: Todo[] = [];
 
   constructor() {}

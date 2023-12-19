@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between">
   <div class="form-container">
     <form [formGroup]="reactiveForm">
       <h2>ADD TODO</h2>
@@ -77,38 +77,18 @@
       </div>
     </form>
   </div>
-  <div class="todoList" style="width: 49%;">
+  <div class="todoList">
+   
 
-    <div *ngFor="let _data of todo">
-      <h1>{{ _data?.title }}</h1>
-      <h1>{{ _data?.deadline | date: 'mediumDate' }}</h1>
-      <h1>{{ _data?.priority }}</h1>
-      <h1>{{ _data?.description }}</h1>
-    </div>
-    
-    <table mat-table [dataSource]="todo" class="mat-elevation-z8">
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let element"> {{element?.title}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let element"> {{element?.description}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="deadline">
-        <th mat-header-cell *matHeaderCellDef>Deadline</th>
-        <td mat-cell *matCellDef="let element"> {{element?.deadline | date: 'mediumDate'}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="priority">
-        <th mat-header-cell *matHeaderCellDef>Priority</th>
-        <td mat-cell *matCellDef="let element"> {{element?.priority}} </td>
-      </ng-container>
-      
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+
+    <mat-card *ngFor="let _data of todo" class="card">
+      <mat-card-content>
+        <h1>Title: {{ _data?.title }}</h1>
+        <h1>Deadline: &nbsp;{{ _data?.deadline | date : "mediumDate" }}</h1>
+        <h1>Priority: &nbsp;{{ _data?.priority }}</h1>
+        <h1>Description: &nbsp;{{ _data?.description }}</h1>
+      </mat-card-content>
+    </mat-card> 
+   
   </div>
 </div>

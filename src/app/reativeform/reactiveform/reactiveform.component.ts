@@ -6,19 +6,19 @@ import {
   Validators,
 } from '@angular/forms';
 import { Todo } from 'src/app/interface/todo';
-import { ReactiveFornService } from 'src/app/service/reactive-forn.service';
+import { ReactiveFormService } from 'src/app/service/reactive-formservice';
 
 @Component({
   selector: 'app-reactiveform',
   templateUrl: './reactiveform.component.html',
   styleUrls: ['./reactiveform.component.scss'],
-})
+}) 
 export class ReactiveformComponent implements OnInit {
   public reactiveForm: FormGroup;
   todo: Todo[] = [];
   displayedColumns: string[] = ['title',  'description','deadline', 'priority'];
 
-  constructor(private fb: FormBuilder, private reactiveFormSerivce: ReactiveFornService) {}
+  constructor(private fb: FormBuilder, private reactiveFormSerivce: ReactiveFormService) {}
 
   ngOnInit() : void {
     this.createForm();
@@ -39,6 +39,7 @@ export class ReactiveformComponent implements OnInit {
     // console.log('Form value ', this.loginForm.value)
     // console.log('hi');
     this.reactiveForm.reset();
+    this.reactiveForm.get('priority').setValue('low');
   }
 
   private getToDoList(){

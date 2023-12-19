@@ -13,12 +13,15 @@ import {
 } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { MatTableModule } from '@angular/material/table';
+import { MatHeaderCell, MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 const routes: Route[] = [
   {
     path: '',
     component: ReactiveformComponent,
   },
+
+
 ];
 
 @NgModule({
@@ -34,6 +37,8 @@ const routes: Route[] = [
     MatNativeDateModule,
     MatSelectModule,
     MatTableModule,
+    MatCardModule,
+    
   ],
 })
 export class ReativeformModule {}
