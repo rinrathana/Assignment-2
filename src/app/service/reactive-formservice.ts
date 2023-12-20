@@ -14,8 +14,7 @@ export class ReactiveFormService {
   }
 
   getTodoList() {
-    return this.todoList;
-  }
+    return this.todoList  }
   
 }
 

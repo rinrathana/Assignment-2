@@ -1,15 +1,7 @@
-<div style="display: flex; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; width: 100%">
   <div class="form-container">
     <form [formGroup]="reactiveForm">
       <h2>ADD TODO</h2>
-
-      <div
-        style="
-          border-bottom: 1px solid #c6c6c6;
-          margin-top: -16px;
-          margin-bottom: 15px;
-        "
-      ></div>
 
       <div class="full-width">
         <mat-form-field>
@@ -77,10 +69,8 @@
       </div>
     </form>
   </div>
+
   <div class="todoList">
-   
-
-
     <mat-card *ngFor="let _data of todo" class="card">
       <mat-card-content>
         <h1>Title: {{ _data?.title }}</h1>
@@ -88,7 +78,6 @@
         <h1>Priority: &nbsp;{{ _data?.priority }}</h1>
         <h1>Description: &nbsp;{{ _data?.description }}</h1>
       </mat-card-content>
-    </mat-card> 
-   
+    </mat-card>
   </div>
 </div>

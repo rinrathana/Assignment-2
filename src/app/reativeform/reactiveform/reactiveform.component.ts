@@ -36,8 +36,6 @@ export class ReactiveformComponent implements OnInit {
 
   public onSubmit() {
     this.reactiveFormSerivce.addTodoList(this.reactiveForm.value);
-    // console.log('Form value ', this.loginForm.value)
-    // console.log('hi');
     this.reactiveForm.reset();
     this.reactiveForm.get('priority').setValue('low');
   }

@@ -1,31 +1,36 @@
 form{
     display: flex;
     flex-direction: column;
-    padding-left: 50%;
+    width: 100%;
 }
 
 
 .form-container{
-    width: 40%;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-    padding: 20px;
-   
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    padding: 10px 20px;
+    margin: 20px 0 0 25px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .todoList{
-    width: 48%;
-    padding: 10px;
-     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-   
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 0 0 10px;
 }
 
 .full-width mat-form-field{
     width: 100%;
 }
 .card{
-    width: 300px;
+    width: 270px;
     height: fit-content;
     background-color: cornsilk;
+}
+
+h1{
+    font-size:20px;
+    margin: 0;
 }
